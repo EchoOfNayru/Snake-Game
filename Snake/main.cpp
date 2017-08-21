@@ -65,6 +65,7 @@ void Draw()
 		cout << "#";
 	}
 	cout << endl;
+	cout << "Score: " << score << endl;
 
 	
 }
@@ -113,6 +114,18 @@ void Logic()
 	default:
 		break;
 	}
+
+	if (x > width || x < 0 || y > height || y < 0)
+	{
+		gameOver = true;
+	}
+
+	if (x == fruitX && y == fruitY) 
+	{
+		score += 10;
+		fruitX = rand() % width;
+		fruitY = rand() % height;
+	}
 }
 
 int main() 
@@ -125,4 +138,5 @@ int main()
 		Input();
 		Logic();
 	}
+	system("pause");
 }
